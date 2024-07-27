@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             transition: background-color 0.5s, color 0.5s;
@@ -142,6 +143,54 @@
         label.theme-toggle-label.btn.navbar.navbar-expand-lg.navbar.border-bottom.border-body.sticky-top.container-fluid.d-flex {
             gap: 15px;
         }
+
+        /* Custom button style for Read More */
+        .btn-primary {
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .btn-primary .fa-chevron-down,
+        .btn-primary .fa-chevron-up {
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate icon when expanded */
+        .btn-primary.collapsing .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        #ch {
+            display: none;
+        }
+
+        .content {
+            display: none;
+        }
+
+        #ch:checked~.content {
+            display: block;
+        }
+
+        #ch:checked~label {
+            display: none;
+        }
+
+        #btn-label {
+            display: inline-block;
+            cursor: pointer;
+            color: #1c1c1c;
+            background-color: rgb(255 255 255);
+            border: 2px solid #0c070763;
+            padding: 10px 20px;
+            border-radius: 3px;
+            margin-top: 12px;
+        }
+
+        .btn-label:active {
+            color: #fff !important;
+            background-color: #e1e1e175 !important;
+        }
     </style>
 </head>
 
@@ -215,6 +264,7 @@
                             <li><strong>Degree:</strong>pursuing Bachelor of Commerce in Computer Applications</li>
                             <li><strong>PhEmailone:</strong>aahanamaryam113@gmail.com</li>
                         </ul>
+                        <input id="ch" type="checkbox">
                         <p>I am a final-year B.Com student specializing in Computer Applications at Women's Coaching
                             Centre,
                             with a solid foundation in financial accounting and a growing proficiency in
@@ -222,20 +272,27 @@
                             in HTML, CSS, Bootstrap, and beginning JavaScript. My academic journey began at
                             Falah-e-Milath
                             Primary School and continued at Hasnath-e-Jaria Girls Higher Secondary School in Ambur.</p>
-                        <p>During my 2nd year, I taught at Crescent Matriculation School, gaining practical experience
-                            before refocusing on my academic pursuits. Driven by a passion for both commerce and
-                            technology,
-                            I aspire to bridge the gap between traditional banking practices and modern IT solutions. My
-                            mission is to integrate my skills to contribute innovatively within the banking and IT
-                            sectors,
-                            aiming for efficiency, security, and transformative impact.</p>
-                        <p>I am determined to continuously expand my coding knowledge and refine my understanding of
-                            financial practices. My goal is to leverage this dual expertise to drive innovation and
-                            shape
-                            the future of financial technologies. With a diligent and adaptable approach, I am prepared
-                            to
-                            pursue opportunities that allow me to excel and make a meaningful impact in the dynamic
-                            intersection of banking and technology.</p>
+                        <div class="content">
+                            <p>During my 2nd year, I taught at Crescent Matriculation School, gaining practical
+                                experience
+                                before refocusing on my academic pursuits. Driven by a passion for both commerce and
+                                technology,
+                                I aspire to bridge the gap between traditional banking practices and modern IT
+                                solutions. My
+                                mission is to integrate my skills to contribute innovatively within the banking and IT
+                                sectors,
+                                aiming for efficiency, security, and transformative impact.</p>
+                            <p>I am determined to continuously expand my coding knowledge and refine my understanding of
+                                financial practices. My goal is to leverage this dual expertise to drive innovation and
+                                shape
+                                the future of financial technologies. With a diligent and adaptable approach, I am
+                                prepared
+                                to
+                                pursue opportunities that allow me to excel and make a meaningful impact in the dynamic
+                                intersection of banking and technology.</p>
+                            <label for="ch" class="btn-label" id="btn-label">Read less</label>
+                        </div>
+                        <label for="ch" class="btn-label" id="btn-label">Read more</label>
                     </div>
                 </div>
             </div>
@@ -457,9 +514,12 @@
         </div>
     </div>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 
 </html>
