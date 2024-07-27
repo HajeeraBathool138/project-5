@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multifaceted Portfolio</title>
+    <link rel="icon" href="images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c;
+            color: #ffffff;
+        }
+
+        body h1,
+        body h2,
+        body h3,
+        body h4 {
+            font-family: "Roboto Slab", serif !important;
+            font-weight: 400 !important;
+            font-size: 3rem !important;
+        }
+
+        body p,
+        body span,
+        body li,
+        body a {
+            font-family: "Ubuntu", sans-serif !important;
+            font-size: 1rem !important;
+        }
+
+
+        ul.nav.justify-content-center.border-bottom.pb-3.mb-3 {
+            padding-bottom: 0rem !important;
+            margin-bottom: 0rem !important;
+        }
+
+        img.d-block.w-100 {
+            object-fit: contain;
+        }
+
+        .navbar-expand-lg .navbar-nav .nav-link {
+            color: black;
+        }
+
+        .navbar>.container,
+        .navbar>.container-fluid,
+        .navbar>.container-lg,
+        .navbar>.container-md,
+        .navbar>.container-sm,
+        .navbar>.container-xl,
+        .navbar>.container-xxl {
+            gap: 1rem;
+        }
+
+        .navbar-expand-lg .navbar-collapse {
+            justify-content: center;
+        }
+
+        .marquee .track,
+        .marquee .track-2 {
+            white-space: nowrap;
+            will-change: transform;
+        }
+
+        .marquee .track {
+            animation: marquee 100s linear infinite;
+        }
+
+        .marquee .track-2 {
+            animation: marquee-left 100s linear infinite;
+        }
+
+        .btn-lift {
+            transition: transform .2s ease-in-out;
+            transition: border-color .2s ease-in-out;
+            transition: background-color .2s ease-in-out;
+            transition: box-shadow .2s ease-in-out;
+            transform: border-color .2s ease-in-out;
+            transform: background-color .2s ease-in-out;
+            transform: box-shadow .2s ease-in-out;
+            transform-origin: left;
+        }
+
+        .rounded-pill {
+            border-radius: var(--bs-border-radius-pill) !important;
+            background-color: #f1f5f9;
+        }
+
+        .marquee {
+            height: 65px;
+            line-height: 4.5;
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+            width: 100vw;
+        }
+
+        [data-cue="slideInRight"],
+        [data-cues="slideInRight"]>* {
+            opacity: 0;
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes marquee-left {
+            100% {
+                transform: translateX(0);
+            }
+
+            0% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .card-lift {
+            border-radius: .75rem;
+            transition: transform .2s ease-in-out, border-color .2s ease-in-out, background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+        }
+
+        .card-lift.active,
+        .card-lift:focus,
+        .card-lift:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05) !important;
+            transform: translateY(-.50rem);
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 0.875rem;
+            }
+
+            footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top {
+                gap: 20px;
+            }
+        }
+
+        section#offices {
+            padding-top: 8rem;
+        }
+
+        body {
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .theme-toggle-label {
+            cursor: pointer;
+            display: inline-block;
+            width: 100%;
+            background-color: #fff !important;
+        }
+
+        .bi-sun {
+            display: none;
+        }
+
+        .bi-moon {
+            display: block;
+            font-size: 30px;
+            color: #1c1c1c;
+            margin-right: 15px;
+        }
+
+        label {
+            margin-bottom: 0;
+        }
+
+        #theme-toggle:checked~.theme-toggle-label .bi-moon {
+            display: none;
+        }
+
+        #theme-toggle:checked~.theme-toggle-label .bi-sun {
+            display: inline;
+            color: #fff;
+            font-size: 30px;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+
+        .theme-container {
+            min-height: 100vh;
+            transition: background-color 0.5s, color 0.5s;
+            background-color: #1c1c1c;
+            color: #fff;
+        }
+
+        #theme-toggle:checked~.theme-container {
+            background-color: #fff;
+            color: #1c1c1c;
+        }
+
+        #theme-toggle:checked~label {
+            background-color: #1c1c1c !important;
+            color: #fff;
+        }
+
+        #theme-toggle:checked~.theme-toggle-label a {
+            color: #fff !important;
+        }
+
+        #theme-toggle:checked~.theme-container a,
+        #theme-toggle:checked~.theme-container p,
+        #theme-toggle:checked~.theme-container span,
+        #theme-toggle:checked~.theme-container h2,
+        #theme-toggle:checked~.theme-container h1,
+        #theme-toggle:checked~.theme-container h3 {
+            color: #1c1c1c !important;
+        }
+
+        .theme-toggle-label:hover {
+            background-color: #fff;
+        }
+
+        footer.border-top {
+            border-top: 1px solid #dee2e6 !important;
+        }
+
+        #theme-toggle:checked~.theme-container footer.border-top {
+            border-top: 1px solid #838383 !important;
+        }
+
+        .btn-dark {
+            color: #fff;
+            background-color: #83878b !important;
+            border-color: #74787d !important;
+        }
+
+        #theme-toggle:checked~.theme-container .btn-light {
+            background-color: #c9cbcd !important;
+            box-shadow: 5px 5px 5px #3a3232;
+        }
+
+        #theme-toggle:checked~.theme-container ul.border-bottom {
+            border-bottom: 1px solid #838383 !important;
+        }
+
+        @media (max-width: 1200px) {
+            ul.nav.col-md-4.justify-content-end.list-unstyled.d-flex {
+                padding-top: 20px;
+            }
+        }
+
+        #theme-toggle:checked~.theme-toggle-label .bi-list {
+            color: #fff !important;
+        }
+
+        button.navbar-toggler {
+            border: 2px solid grey;
+        }
+
+        .bi-list {
+            color: #1c1c1c !important;
+            font-size: 28px;
+        }
+
+        #theme-toggle:checked~.theme-container button.navbar-toggler.collapsed {
+            border: 2px solid grey !important;
+        }
+
+        span.navbar-toggler-icon {
+            margin-bottom: 3px;
+        }
+
+        label.theme-toggle-label.btn.navbar.navbar-expand-lg.navbar.border-bottom.border-body.sticky-top.container-fluid.d-flex {
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="theme-toggle" style="display: none;">
+    <label
+        class="theme-toggle-label btn navbar navbar-expand-lg navbar border-bottom border-body sticky-top container-fluid d-flex"
+        for="theme-toggle">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+
+        <div class="dropdown text-end">
+            <a href="index.html" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="images/img6.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+        </div>
+        <a class="navbar-brand" href="#">Hajeera</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav nav-underline">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="works.html">Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="integration.html">Integration</a>
+                </li>
+            </ul>
+        </div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 bg-white" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-dark" type="submit">Search</button>
+        </form>
+    </label>
+    <div class="theme-container">
+
+        <section id="integration" class="pt-5">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="text-center mb-7 pb-2">
+                            <h2 class="mb-3">Integrate apps with just a few clicks</h2>
+                            <p class="mb-0">
+                                Connect your existing apps and workflows with pre-made integrations available for 400+
+                                popular apps, plus custom integrations for more advanced
+                                users.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-7 pb-2 text-center justify-content-center g-0">
+                    <div class="col-lg-12 col-12">
+                        <div class="marquee" data-cue="slideInLeft" data-show="true"
+                            style="animation-name: slideInLeft; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
+                            <div class="track">
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-1.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Microsoft Team</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-12.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Calendar</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-9.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Jira</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-4.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Slack</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-15.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Salesforce</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-3.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Tableau</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="images/integrate-logo-12.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Calendar</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-4.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Slack</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-15.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Salesforce</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-3.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Tableau</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-12.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Calendar</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-3.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Tableau</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-12 px-lg-7">
+                        <div class="marquee" data-cue="slideInRight" data-show="true"
+                            style="animation-name: slideInRight; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
+                            <div class="track-2">
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-7.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">MS Teams</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-10.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">HubSpot</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-6.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">OneDrive</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-14.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">GitHub</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-13.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Gmail</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-11.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Google</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-14.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">GitHub</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-13.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Gmail</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-10.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">HubSpot</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-6.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">OneDrive</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-14.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">GitHub</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-13.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Gmail</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-12">
+                        <div class="marquee" data-cue="slideInLeft" data-show="true"
+                            style="animation-name: slideInLeft; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
+                            <div class="track">
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-8.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">MS Excel</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-4.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Slack</span>
+                                </a>
+
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-3.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Tableau</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-15.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Dropbox</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-5.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Salesforce</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-9.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Jira</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-8.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">MS Excel</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-4.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Slack</span>
+                                </a>
+
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-2.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Zoom</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-3.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Tableau</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-15.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Dropbox</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-5.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Salesforce</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-9.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Jira</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-15.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Dropbox</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-5.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Salesforce</span>
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill me-1 mb-3 btn-logo btn-lift">
+                                    <span><img src="/images/integrate-logo-9.svg" alt="logo" class="icon-xs"></span>
+                                    <span class="ms-1 d-none d-lg-inline-flex">Jira</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <a href="#" class="btn btn-dark me-4">Get Started</a>
+                            <a href="#" class="icon-link icon-link-hover mt-3 mt-md-0">
+                                <span>See all integrations</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-xl-9 my-5" id="offices">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <h2 class="mb-lg-7">Offices around the world which i want to work</h2>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <h3 class="mb-3">India</h3>
+                        <figure class="mb-3 card-lift">
+                            <img src="/images/location-1.jpg" alt="location" class="img-fluid rounded-3" />
+                        </figure>
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-geo-alt-fill text-primary" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg>
+                            </div>
+                            <div class="ms-2">
+                                <span>WeWork, 412, Residency Rd, Shanthala Nagar,
+                                    Ashok Nagar, Bengaluru, Karnataka 560025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <h3 class="mb-3">Australia</h3>
+                        <figure class="mb-3 card-lift">
+                            <img src="/images/location-2.jpg" alt="location" class="img-fluid rounded-3" />
+                        </figure>
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-geo-alt-fill text-primary" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg>
+                            </div>
+                            <div class="ms-2">
+                                <span>12/125 Collins St, Melbourne, Victoria, 3000
+                                    Australia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <h3 class="mb-3">Brazil</h3>
+                        <figure class="mb-3 card-lift">
+                            <img src="/images/location-3.jpg" alt="location" class="img-fluid rounded-3" />
+                        </figure>
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-geo-alt-fill text-primary" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg>
+                            </div>
+                            <div class="ms-2">
+                                <span>Oscar Freire, 678 - Jardim Paulista São Paulo
+                                    - SP 01426-001, Brazil</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <h3 class="mb-3">Canada</h3>
+                        <figure class="mb-3 card-lift">
+                            <img src="/images/location-4.jpg" alt="location" class="img-fluid rounded-3" />
+                        </figure>
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-geo-alt-fill text-primary" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg>
+                            </div>
+                            <div class="ms-2">
+                                <span>458 Av. Viger O Montréal, QC H2Z 1M9
+                                    Canada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+                <div class="col mb-3">
+                    <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                        <img src="images/img6.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <p class="text-light">© 2024</p>
+                </div>
+                <div class="col mb-3">
+                    <h5>Home</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#maincontent" class="nav-link p-0 text-light">Intro</a></li>
+                        <li class="nav-item mb-2"><a href="#Self" class="nav-link p-0 text-light">Self</a></li>
+                        <li class="nav-item mb-2"><a href="#vision" class="nav-link p-0 text-light">Vision/Mission</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#skills" class="nav-link p-0 text-light">Skills</a></li>
+                    </ul>
+                </div>
+
+                <div class="col mb-3">
+                    <h5>About</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="about.html#about" class="nav-link p-0 text-light">About
+                                me</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="about.html#education"
+                                class="nav-link p-0 text-light">Education-Background</a></li>
+                        <li class="nav-item mb-2"><a href="about.html#personal" class="nav-link p-0 text-light">Personal
+                                Skills</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col mb-3">
+                    <h5>Works</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="works.html#project1" class="nav-link p-0 text-light">Project
+                                1</a></li>
+                        <li class="nav-item mb-2"><a href="works.html#project2" class="nav-link p-0 text-light">Project
+                                2</a></li>
+                        <li class="nav-item mb-2"><a href="works.html#project3" class="nav-link p-0 text-light">Project
+                                3</a></li>
+                        <li class="nav-item mb-2"><a href="works.html#project4" class="nav-link p-0 text-light">Project
+                                4</a></li>
+                        <li class="nav-item mb-2"><a href="works.html#project5" class="nav-link p-0 text-light">Project
+                                5</a></li>
+                    </ul>
+                </div>
+                <div class="col mb-3">
+                    <h5>Contact</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="contactus.html#contact"
+                                class="nav-link p-0 text-light">Contact
+                                Me</a></li>
+                        <li class="nav-item mb-2"><a href="contactus.html#testimonials"
+                                class="nav-link p-0 text-light">Testimonial</a></li>
+                    </ul>
+                    <h5>Integration</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="integration.html#integration"
+                                class="nav-link p-0 text-light">Integration</a></li>
+                        <li class="nav-item mb-2"><a href="integration.html#offices"
+                                class="nav-link p-0 text-light">Offices</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center pt-5 pb-5 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-light text-decoration-none lh-1">
+                        <img src="images/img6.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <span class="mb-3 mb-md-0 text-light">© 2024</span>
+                </div>
+
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="index.html" class="nav-link px-2 text-light">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link px-2 text-light">About</a>
+                    </li>
+                    <li class="nav-item"><a href="works.html" class="nav-link px-2 text-light">Works</a>
+                    </li>
+                    <li class="nav-item"><a href="contactus.html" class="nav-link px-2 text-light">Contact</a></li>
+                    <li class="nav-item"><a href="integration.html" class="nav-link px-2 text-light">Integration</a>
+                    </li>
+                </ul>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-body-secondary" href="https://myaccount.google.com/profile"><button
+                                type="button" class="btn btn-light" fdprocessedid="8whl9">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-google" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z">
+                                    </path>
+                                </svg>
+                            </button></a></li>
+                    <li class="ms-3"><a class="text-body-secondary" href="https://github.com/HajeeraBathool138"><button
+                                type="button" class="btn btn-light" fdprocessedid="dhuan">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-github" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8">
+                                    </path>
+                                </svg>
+                            </button></a></li>
+                    <li class="ms-3"><a class="text-body-secondary"
+                            href="https://www.linkedin.com/in/aahana-maryam-0b751a2b9/"><button type="button"
+                                class="btn btn-light">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-linkedin" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

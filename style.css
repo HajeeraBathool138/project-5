@@ -1,0 +1,398 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1c1c1c;
+    color: #ffffff;
+}
+
+ul.nav.justify-content-center.border-bottom.pb-3.mb-3 {
+    padding-bottom: 0rem !important;
+    margin-bottom: 0rem !important;
+}
+
+img.d-block.w-100 {
+    object-fit: contain;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar>.container,
+.navbar>.container-fluid,
+.navbar>.container-lg,
+.navbar>.container-md,
+.navbar>.container-sm,
+.navbar>.container-xl,
+.navbar>.container-xxl {
+    gap: 1rem;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-text {
+    font-size: 1.5rem;
+}
+
+.main-title {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.page-number {
+    font-size: 0.9rem;
+}
+
+.rounded-image,
+.background-image {
+    transition: all 0.3s ease-in 0.2s;
+}
+
+
+.rounded-img2 {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    padding: 5px;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background-color: antiquewhite;
+}
+
+.rounded-image {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    transform: translate(0%);
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+}
+
+.image-container {
+    position: relative;
+    display: flex;
+}
+
+.rounded-img1 {
+    width: 100%;
+}
+
+.arrow {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+.image-container:hover .rounded-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    transform: none;
+}
+
+.image-container:hover .rounded-img1,
+.image-container:hover .rounded-img2 {
+    width: 100%;
+    height: 333px;
+    border-radius: 0;
+    top: 0;
+    left: 0;
+    transform: none;
+}
+
+.image-container:hover .background-image {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+}
+
+#profile-image {
+    transition: opacity 0.5s ease;
+}
+
+#profile-image:hover {
+    opacity: 0.7;
+}
+
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    font-size: 3.1rem;
+    animation: typing 10s steps(20, end) infinite, blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+
+    0%,
+    100% {
+        width: 0;
+    }
+
+    50% {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: orange;
+    }
+}
+
+.lead {
+    font-size: 1.25rem;
+}
+
+.display-4 {
+    font-family: 'Serif', serif;
+}
+
+hr.my-4 {
+    border-top: 1px solid #ffffff;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.skills-section {
+    padding: 60px 0;
+}
+
+.skills-section h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.skills-section p {
+    margin-bottom: 40px;
+}
+
+.progress {
+    margin-bottom: 20px;
+    height: 20px;
+}
+
+.progress-bar {
+    animation: fillBar 2s ease-in-out forwards;
+}
+
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--width);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .description,
+    .lead,
+    .header-text {
+        font-size: 0.875rem;
+    }
+
+    .main-content {
+        padding: 20px;
+        height: auto;
+    }
+
+    .image-container {
+        text-align: center;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.875rem;
+    }
+
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .header-text {
+        font-size: 1rem;
+    }
+
+    .typewriter {
+        font-size: 1.5rem;
+    }
+
+    footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top {
+        gap: 20px;
+    }
+}
+
+.progress-bar-animated {
+    animation: 1s linear infinite progress-bar-stripes !important;
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 1.75rem;
+        /* Slightly smaller to avoid overflow */
+    }
+
+    .description,
+    .lead,
+    .header-text {
+        font-size: 0.75rem;
+        /* Adjusted for better fit */
+    }
+
+    .main-content {
+        padding: 20px;
+        height: auto;
+    }
+
+    .image-container {
+        text-align: center;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.125rem;
+        /* Smaller font size for better fit */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.75rem;
+        /* Reduced font size to prevent overflow */
+    }
+
+    .main-title {
+        font-size: 1.25rem;
+        /* Further reduction to fit small screens */
+    }
+
+    .header-text {
+        font-size: 0.875rem;
+        /* Slightly smaller for better fit */
+    }
+
+    .typewriter {
+        font-size: 1.25rem;
+        /* Adjusted to fit smaller screens */
+    }
+
+    footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top {
+        gap: 20px;
+    }
+}
+
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+        /* Ensure the font size is responsive */
+    }
+
+    .description,
+    .lead,
+    .header-text {
+        font-size: 0.875rem;
+        /* Adjust font sizes */
+    }
+
+    .main-content {
+        padding: 20px;
+        /* Adjust padding for smaller screens */
+        height: auto;
+        /* Ensure the height is auto to accommodate content */
+    }
+
+    .image-container {
+        text-align: center;
+        /* Center align text in smaller screens */
+        height: auto;
+        /* Ensure the height adjusts */
+    }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+        /* Adjust font size for mobile */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.875rem;
+        /* Adjust font size for mobile */
+    }
+
+    .main-title {
+        font-size: 1.5rem;
+        /* Ensure the title font size fits mobile screens */
+    }
+
+    .header-text {
+        font-size: 1rem;
+        /* Adjust font size for mobile */
+    }
+
+    .typewriter {
+        font-size: 1.5rem;
+        /* Adjust typewriter font size for mobile */
+    }
+
+    footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top {
+        gap: 20px;
+        /* Adjust the gap for footer elements on mobile */
+    }
+}
+
+@media (max-width: 1200px) {
+    ul.nav.col-md-4.justify-content-end.list-unstyled.d-flex {
+        padding-top: 20px;
+    }
+}

@@ -1,0 +1,262 @@
+body {
+    background-color: #1c1c1c;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+}
+
+ul.nav.justify-content-center.border-bottom.pb-3.mb-3 {
+    padding-bottom: 0rem !important;
+    margin-bottom: 0rem !important;
+}
+
+img.d-block.w-100 {
+    object-fit: contain;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar>.container,
+.navbar>.container-fluid,
+.navbar>.container-lg,
+.navbar>.container-md,
+.navbar>.container-sm,
+.navbar>.container-xl,
+.navbar>.container-xxl {
+    gap: 1rem;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: center;
+}
+
+.contact-section {
+    padding: 60px 0;
+}
+
+.contact-section h2 {
+    font-weight: bold;
+}
+
+.social-profiles i {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #835b5b;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info .icon {
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+#form-control {
+    margin-bottom: 1.5rem;
+}
+
+.btn-send {
+    color: #ffffff;
+    background-color: #5f3737;
+    margin-top: 1.5rem;
+}
+
+.btn-send:hover {
+    /* color: #ffffff;
+    background-color: #5f3737; */
+    color: #e5c2c2;
+    background-color: #835b5b;
+}
+
+.contact-info.mb-3 {
+    border: 2px solid grey;
+    box-shadow: 2px 2px 15px #757575;
+    margin-bottom: 1.5rem !important;
+}
+
+.contact-info {
+    border: 2px solid grey;
+    box-shadow: 2px 2px 15px #757575;
+}
+
+/* testimonial*/
+.testimonial {
+    margin: 0 15px;
+}
+
+.testimonial img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+@media (max-width: 576px) {
+    footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top {
+        gap: 20px;
+    }
+}
+
+.contact-info a {
+    color: #815353;
+    text-decoration: none;
+}
+
+i.fab:hover {
+    color: #9f7f7f;
+}
+
+.col-md-6 {
+    width: 47% !important;
+    padding-top: 6px;
+}
+
+.col-col-apps {
+    width: 30%;
+}
+
+.row {
+    justify-content: center;
+}
+
+.bi {
+    font-size: 60px !important;
+    color: #8a5151;
+    border-right: 1px solid white;
+    padding: 0px 40px;
+}
+
+.bi:hover {
+    color: #583030 !important;
+    cursor: pointer !important;
+}
+
+.contact-details {
+    font-size: 25px !important;
+    font-weight: 600 !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+i.fab {
+    font-size: 25px;
+    margin: 0 10px;
+    color: #835b5b;
+}
+
+.ms-4 a {
+    color: #815353;
+}
+
+.ms-4 a:hover {
+    color: #4099db;
+}
+
+p.ms-4 {
+    margin-left: 4rem !important;
+    padding-top: 10px;
+}
+
+.mb-3.d-flex {
+    margin-top: 1rem !important;
+}
+
+i.fas.fa-share-alt {
+    font-size: 60px !important;
+    color: #8a5151;
+    border-right: 1px solid white;
+    padding: 10px 40px;
+}
+
+i.fas.fa-share-alt:hover {
+    color: #583030;
+}
+
+.form-group.col-md-6 {
+    flex: 0 0 47% !important;
+}
+
+.btn-send {
+    color: #ffffff !important;
+    background-color: #5f3737 !important;
+    margin-top: 1rem;
+}
+
+.btn-send:hover {
+    color: #e5c2c2 !important;
+    background-color: #835b5b !important;
+}
+
+.theme-container.carousel-control-prev-icon {
+    background: 50% / 100% 100% no-repeat !important;
+}
+
+#theme-toggle:checked~.theme-container .btn-light {
+    background-color: #afb5bb !important;
+}
+
+#theme-toggle:checked~.theme-container .contact-info.mb-3 {
+    background-color: #e5dcd0;
+}
+
+#theme-toggle:checked~.theme-container #form-control {
+    background-color: #e5e7e9;
+}
+
+#theme-toggle:checked~.theme-container ul.border-bottom {
+    border-bottom: 1px solid #838383 !important;
+}
+
+#theme-toggle:checked~.theme-container i.fas.fa-share-alt,
+#theme-toggle:checked~.theme-container .bi {
+    border-right: 1px solid #1c1c1c;
+}
+
+@media (max-width: 1200px) {
+    ul.nav.col-md-4.justify-content-end.list-unstyled.d-flex {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    i.fas.fa-share-alt {
+        padding: 10px 20px;
+    }
+
+    p.ms-4 {
+        margin-left: 2rem !important;
+        width: -webkit-fill-available !important;
+    }
+
+    .ms-4 a {
+        word-break: break-all;
+    }
+
+    .bi {
+        padding: 0px 20px;
+    }
+
+    .col-md-6 {
+        width: 100% !important;
+    }
+
+    .form-row.d-flex {
+        display: block !important;
+        width: 100%;
+    }
+
+    .form-group.col-md-6 {
+        max-width: inherit !important;
+    }
+}
+
+@media (max-width: 493px) {
+    .col-md-6 {
+        width: 100% !important;
+    }
+}
